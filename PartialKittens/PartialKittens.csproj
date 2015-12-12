@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseCats.cs" />
+    <Compile Include="CatEntities.cs" />
     <Compile Include="IStripedWildCat.cs" />
     <Compile Include="IucnCode.cs" />
     <Compile Include="Prey.cs" />
