@@ -24,4 +24,10 @@ C# In Depth Chapter 7 Exploration for Book Club
   * Expected methods in manual code (very brittle, bad design)
   * Empty virtual methods in generated code
 * Declared like abstract methods
-* Optional hooks with zero overhead; do not get compiled in if no implementation
+* Optional "hook" with zero overhead; does not get compiled in if no implementation
+  * **Be careful of unintended side effect:** _any_ statement calling the partial method gets removed, including expressions in the argument
+  * Argument behavior is only an issue if we are implementing the code generator; in general we would be implementing the partial method itself
+* Must be private, can be static/generic
+
+## Static classes
+
