@@ -25,5 +25,12 @@ namespace PartialKittens
         }
 
         public decimal ExtinctionRatePerDecade { get; set; }
+
+
+        partial void Index(IEnumerable<WildCat> loadedRelatives)
+        {
+            Console.WriteLine("Indexing my tiger cousins...");
+        }
+
     }
 }

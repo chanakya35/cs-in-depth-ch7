@@ -14,6 +14,14 @@ namespace PartialKittens
 
     public abstract class HouseCat : Felidae
     {
+        public override string Classification
+        {
+            get
+            {
+                return "Felis catus";
+            }
+        }
+
         public virtual string Meow()
         {
             return "Meowww....";

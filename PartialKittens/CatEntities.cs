@@ -11,12 +11,23 @@ namespace PartialKittens
     /// </summary>
     public partial class Tiger
     {
-        public void FillReferences()
+        public void FinishLoading()
         {
-            LoadRelatedSpecies();
+            Index(LoadRelatedSpecies());
+
+            // if we *need* to load related species, even if no indexing implemented
+            //var relSpecies = LoadRelatedSpecies();
+            //Index(relSpecies);
         }
 
-        partial void LoadRelatedSpecies();
+        private IEnumerable<WildCat> LoadRelatedSpecies()
+        {
+            Console.WriteLine("Loading my tiger cousins...");
+            // pretend this comes from the database
+            return new List<WildCat> { new Lion(), new Jaguar(), new Leapord() };
+        }
+
+        partial void Index(IEnumerable<WildCat> loadedRelatives);
     }
 
     public partial class Prey

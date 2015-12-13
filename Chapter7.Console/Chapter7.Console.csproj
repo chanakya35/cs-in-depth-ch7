@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85B7DDF0-551E-46B2-B619-D2C347DE8B77}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{4F6D4E99-7542-4D04-AF9C-CA788D6874EF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PartialKittens</RootNamespace>
-    <AssemblyName>PartialKittens</AssemblyName>
+    <RootNamespace>Chapter7.Console</RootNamespace>
+    <AssemblyName>Chapter7.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,25 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseCats.cs" />
-    <Compile Include="CatEntities.cs" />
-    <Compile Include="Housecats\AmericanShorthair.cs" />
-    <Compile Include="IStripedWildCat.cs" />
-    <Compile Include="IucnCode.cs" />
-    <Compile Include="Wildcats\Jaguar.cs" />
-    <Compile Include="Wildcats\Leapord.cs" />
-    <Compile Include="Wildcats\Lion.cs" />
-    <Compile Include="Prey.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wildcats\Tiger.appearance.cs">
-      <DependentUpon>Tiger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wildcats\Tiger.behavioral.cs">
-      <DependentUpon>Tiger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wildcats\Tiger.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PartialKittens\PartialKittens.csproj">
+      <Project>{85b7ddf0-551e-46b2-b619-d2c347de8b77}</Project>
+      <Name>PartialKittens</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
