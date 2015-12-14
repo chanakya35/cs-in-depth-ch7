@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter7", "Chapter7\Chapter7.csproj", "{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartialKittens", "PartialKittens\PartialKittens.csproj", "{85B7DDF0-551E-46B2-B619-D2C347DE8B77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter7.Console", "Chapter7.Console\Chapter7.Console.csproj", "{4F6D4E99-7542-4D04-AF9C-CA788D6874EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter7.Gui", "Chapter7.Gui\Chapter7.Gui.csproj", "{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{85B7DDF0-551E-46B2-B619-D2C347DE8B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{85B7DDF0-551E-46B2-B619-D2C347DE8B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85B7DDF0-551E-46B2-B619-D2C347DE8B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{4F6D4E99-7542-4D04-AF9C-CA788D6874EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F6D4E99-7542-4D04-AF9C-CA788D6874EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F6D4E99-7542-4D04-AF9C-CA788D6874EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D44FC5BE-511F-4CDC-BCFA-2A35E145C29C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
