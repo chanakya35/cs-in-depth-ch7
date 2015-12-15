@@ -50,12 +50,50 @@ C# In Depth Chapter 7 Exploration for Book Club
   }
   ```
   
-  ## Different access modifiers for getters vs. setters in properties
+## Different access modifiers for getters vs. setters in properties
   
   * Allows for class implementer to specify logic/behavior specific to a property action (set/get) that they may not wish to expose
   * As opposed to the convention for other C# declarations, default matches the modifer for the property itself rather than the "most restrictive scope"
   
-  ## Namespace Aliases
+## Namespace Aliases
   
   * Hardly used outside of generated code, but have their uses
-   
+  * Use double-colon _namespace alias qualifier_ syntax to specify that an aliased type is being referenced (avoids collision with a future type/namespace)
+  * Book example; instead of this (C#1):
+  ```C#
+    using System;
+    using WinForms = System.Windows.Forms;
+    using WebForms = System.Web.UI.WebControls;
+    class Test
+    {
+      static void Main()
+      {
+        Console.WriteLine(typeof(WinForms.Button));
+        Console.WriteLine(typeof(WebForms.Button));
+      }
+    }
+  ```
+  Use this (C#2), to avoid the possibility that someone might introduce an _actual_ (not alias) type or namespace called WinForms or WebForms:
+  ```C#
+  static void Main()
+  {
+    Console.WriteLine(typeof(WinForms::Button));
+    Console.WriteLine(typeof(WebForms::Button));
+  }    
+  ```
+  * Use `global::<Type>` to specify the root namespace (similar to above example, useful when types are defined _outside_ of a namespace)
+  * Use extern aliases when fully-qualified types would result in a collision (i.e. each assembly gets its own alias)
+    * very rare and unusal situation; can be addressed using VS references or compiler switch `/r`
+
+## Pragma Directives
+
+  * Compiler-specific (Jon covers Microsoft compiler csc.exe)
+  * line begins with `#pragma`
+  * Can do anything outside the scope of the C# language specification
+  * MS C# compiler recognizes `warning` and `checksum` pragmas  
+  * **Warning** is used to disable warnings (by exact warning number)
+	* Generally, warning should be fixed rather than ignored unless you have a very good reason for it
+	* Use `disable` and `restore` keywords to limit scope of warning pragma as much as possible
+  * **Checksum** is used to instruct compiler to use a *generated* checksum value instead of computing one
+    * Checksum used to match with unique source code file for debugging information
+
