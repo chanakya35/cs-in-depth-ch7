@@ -43,7 +43,7 @@
     <Compile Include="BaseCats.cs" />
     <Compile Include="CatEntities.cs" />
     <Compile Include="Housecats\AmericanShorthair.cs" />
-    <Compile Include="IStripedWildCat.cs" />
+    <Compile Include="Wildcats\IStripedWildCat.cs" />
     <Compile Include="IucnCode.cs" />
     <Compile Include="Wildcats\Jaguar.cs" />
     <Compile Include="Wildcats\Leapord.cs" />

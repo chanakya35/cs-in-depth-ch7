@@ -26,6 +26,7 @@ namespace PartialKittens
 
         public decimal ExtinctionRatePerDecade { get; set; }
 
+        public int TotalStripes { get { return NumberOfBlackStripes + NumberOfWhiteStripes; } }
 
         partial void Index(IEnumerable<WildCat> loadedRelatives)
         {

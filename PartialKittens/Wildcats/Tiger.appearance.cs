@@ -9,7 +9,6 @@ namespace PartialKittens
     public partial class Tiger : IStripedWildCat
     {
         public string AverageStripeWidth { get; set; }
-        public int TotalStripes { get { return NumberOfBlackStripes + NumberOfWhiteStripes; } }
         public int NumberOfBlackStripes { get; set; }
         public int NumberOfWhiteStripes { get; set; }
     }
