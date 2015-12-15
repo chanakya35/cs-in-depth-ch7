@@ -60,7 +60,8 @@ C# In Depth Chapter 7 Exploration for Book Club
   * Hardly used outside of generated code, but have their uses
   * Use double-colon _namespace alias qualifier_ syntax to specify that an aliased type is being referenced (avoids collision with a future type/namespace)
   * Book example; instead of this (C#1):
-  ```C#
+
+```C#
     using System;
     using WinForms = System.Windows.Forms;
     using WebForms = System.Web.UI.WebControls;
@@ -72,15 +73,16 @@ C# In Depth Chapter 7 Exploration for Book Club
         Console.WriteLine(typeof(WebForms.Button));
       }
     }
-  ```
+```
   Use this (C#2), to avoid the possibility that someone might introduce an _actual_ (not alias) type or namespace called WinForms or WebForms:
-  ```C#
+
+```C#
   static void Main()
   {
     Console.WriteLine(typeof(WinForms::Button));
     Console.WriteLine(typeof(WebForms::Button));
   }    
-  ```
+```
   * Use `global::<Type>` to specify the root namespace (similar to above example, useful when types are defined _outside_ of a namespace)
   * Use extern aliases when fully-qualified types would result in a collision (i.e. each assembly gets its own alias)
     * very rare and unusal situation; can be addressed using VS references or compiler switch `/r`
