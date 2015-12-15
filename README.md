@@ -35,20 +35,22 @@ C# In Depth Chapter 7 Exploration for Book Club
 * No abstract/sealed, no interfaces, no base type, no constructors (or other non-static members), no operators, no protected nor protected internal members
 * In C#2, the static modifier prevents misuse as variable, array, argument, generic, or return types
 * Instead of this (C#1):
-  ```C#
+
+```C#
   public sealed class MyUtilityClass
   {  
   	  private MyUtilityClass() { ; } // prevent instances
   	  public static string ReverseString(string input) { ... }
   }
-  ```
+```
   we can write this (C#2) (_static_ keyword required for every member):
-  ```C#
+
+```C#
   public static class MyUtilityClass
   {
   	  public static string ReverseString(string input) { ... }
   }
-  ```
+```
 
 ## Different access modifiers for getters vs. setters in properties
 
