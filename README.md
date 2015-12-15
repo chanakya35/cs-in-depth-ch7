@@ -1,13 +1,15 @@
-C# In Depth Chapter 7 Exploration for Book Club
+# C# In Depth Chapter 7 Exploration for Book Club
 
-# Talking Points
+*As opposed to previous chapters which cover full-scale language features added in C#, this chapter is more about minor additions which are nice-to-haves or seldom necessary but useful features*
 
-## Partial Classes & Methods
+## Talking Points
+
+### Partial Classes & Methods
 
 * Came in C# 2 and 3 (latter as partial methods)
 * Flexible in many aspects (interfaces, number of files) but constraints encourage consistency
 
-### Partial Classes
+#### Partial Classes
 
 * Member & Static variable initialization order NOT guaranteed
   * **Another** reason not to rely on variable order in code (already brittle to do so)
@@ -17,7 +19,7 @@ C# In Depth Chapter 7 Exploration for Book Club
   * An aid to refactoring (i.e. a starting point for splitting up large types)
   * Organize functionality for unit testing
 
-### Partial Methods
+#### Partial Methods
 
 * Superior alternative to messy "partial implementation" techniques used previously for generated code extension:
   * Event hooks in generated code for manual code to subscribe
@@ -29,7 +31,7 @@ C# In Depth Chapter 7 Exploration for Book Club
   * Argument behavior is only an issue if we are implementing the code generator; in general we would be implementing the partial method itself
 * Must be private, can be static/generic
 
-## Static classes
+### Static classes
 
 * A simple way to specify a _utility_ class (i.e. static methods only, no state, not meant for extension or instantiation)
 * No abstract/sealed, no interfaces, no base type, no constructors (or other non-static members), no operators, no protected nor protected internal members
@@ -52,12 +54,12 @@ C# In Depth Chapter 7 Exploration for Book Club
   }
 ```
 
-## Different access modifiers for getters vs. setters in properties
+### Different access modifiers for getters vs. setters in properties
 
   * Allows for class implementer to specify logic/behavior specific to a property action (set/get) that they may not wish to expose
   * As opposed to the convention for other C# declarations, default matches the modifer for the property itself rather than the "most restrictive scope"
 
-## Namespace Aliases
+### Namespace Aliases
 
   * Hardly used outside of generated code, but have their uses
   * Use double-colon _namespace alias qualifier_ syntax to specify that an aliased type is being referenced (avoids collision with a future type/namespace)
@@ -89,7 +91,7 @@ C# In Depth Chapter 7 Exploration for Book Club
   * Use extern aliases when fully-qualified types would result in a collision (i.e. each assembly gets its own alias)
     * very rare and unusal situation; can be addressed using VS references or compiler switch `/r`
 
-## Pragma directives
+### Pragma directives
 
   * Compiler-specific (Jon covers Microsoft compiler csc.exe)
   * line begins with `#pragma`
@@ -101,4 +103,21 @@ C# In Depth Chapter 7 Exploration for Book Club
   * **Checksum** is used to instruct compiler to use a *generated* checksum value instead of computing one
     * Checksum used to match with unique source code file for debugging information
 
-## Fixed size buffers in unsafe code
+### Fixed size buffers in unsafe code
+
+  * Also rare; used for situations requiring pointer arithmetic with fixed-size buffers (e.g. interacting with native code, using P/Invoke (_Platform Invocation Services_, an API for calling unmanaged code))
+  * `fixed` keyword; can only be used in unsafe context
+  * creates a new nested `FixedBuffer` array-like type within declaring type
+  * Good for high-performance situations; avoids having to create copies of data on the heap by marshaling to an array
+
+### Exposing internal types to "friends" :-)
+
+  * .NET 2.0 introduced `InternalsVisibleTo` attribute
+    * Can only be applied to _assembly_
+    * Can be applied multiple times
+    * Explicitly specifies friendly assembly, allowed access to its internal members
+  * Useful for unit testing (no need to make members public, unless one religiously follows the "test public interfaces only" principle)
+  * Potential security risk: name of friend assembly remains in production code; need to ensure assemblies are signed
+  * _If_ friend assembly is signed, **full** public key must be specified in attribute declaration
+  * Usually such attributes are declared in `AssemblyInfo.cs`
+  * Both source and friend assembly need to be signed for this feature to be useful and possible, if either must be signed
