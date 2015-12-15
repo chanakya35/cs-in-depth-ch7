@@ -36,7 +36,7 @@ C# In Depth Chapter 7 Exploration for Book Club
 * In C#2, the static modifier prevents misuse as variable, array, argument, generic, or return types
 * Instead of this (C#1):
   ```C#
-  public sealed class MyUtilityClass 
+  public sealed class MyUtilityClass
   {  
   	  private MyUtilityClass() { ; } // prevent instances
   	  public static string ReverseString(string input) { ... }
@@ -44,19 +44,19 @@ C# In Depth Chapter 7 Exploration for Book Club
   ```
   we can write this (C#2) (_static_ keyword required for every member):
   ```C#
-  public static class MyUtilityClass 
+  public static class MyUtilityClass
   {
   	  public static string ReverseString(string input) { ... }
   }
   ```
-  
+
 ## Different access modifiers for getters vs. setters in properties
-  
+
   * Allows for class implementer to specify logic/behavior specific to a property action (set/get) that they may not wish to expose
   * As opposed to the convention for other C# declarations, default matches the modifer for the property itself rather than the "most restrictive scope"
-  
+
 ## Namespace Aliases
-  
+
   * Hardly used outside of generated code, but have their uses
   * Use double-colon _namespace alias qualifier_ syntax to specify that an aliased type is being referenced (avoids collision with a future type/namespace)
   * Book example; instead of this (C#1):
@@ -85,7 +85,7 @@ C# In Depth Chapter 7 Exploration for Book Club
   * Use extern aliases when fully-qualified types would result in a collision (i.e. each assembly gets its own alias)
     * very rare and unusal situation; can be addressed using VS references or compiler switch `/r`
 
-## Pragma Directives
+## Pragma directives
 
   * Compiler-specific (Jon covers Microsoft compiler csc.exe)
   * line begins with `#pragma`
@@ -97,3 +97,4 @@ C# In Depth Chapter 7 Exploration for Book Club
   * **Checksum** is used to instruct compiler to use a *generated* checksum value instead of computing one
     * Checksum used to match with unique source code file for debugging information
 
+## Fixed size buffers in unsafe code
